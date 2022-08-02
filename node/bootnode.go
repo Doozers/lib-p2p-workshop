@@ -51,8 +51,8 @@ func (b BootNode) Connect(stringAddr string) {
 }
 
 func (b BootNode) StartDiscovery() error {
-	x := mdns.NewMdnsService(b.Host, "peer-discovery", DiscoveryPing{Host: b.Host})
-	err := x.Start()
+	service := mdns.NewMdnsService(b.Host, "peer-discovery", DiscoveryPing{Host: b.Host})
+	err := service.Start()
 	if err != nil {
 		return err
 	}
